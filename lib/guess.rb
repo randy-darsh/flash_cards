@@ -41,3 +41,21 @@ class Deck
   end
 
 end
+
+class Round
+
+  attr_reader :deck
+
+  def initialize(deck)
+    @deck = deck
+  end
+
+  def guesses
+    @guesses = []
+  end
+
+  def current_card
+    @current_card = deck.cards.first
+  end
+
+end

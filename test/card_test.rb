@@ -41,4 +41,27 @@ class CardTest < Minitest::Test
     assert_equal 3, deck.count
   end
 
+  def test_it_processes_responds_and_records_guesses
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau")
+    card_2 = Card.new("Approximately how many miles are in one astronomical unit?", "93,000,000")
+    deck = Deck.new([card_1, card_2])
+    round = Round.new(deck)
+
+    assert_equal deck, round.deck
+    assert_equal [], round.guesses
+    assert_equal card_1, round.current_card
+    assert_equal guess, round.record_guess("Juneau")
+    # # => #<Guess:0x007ffdf19c8a00 @card=#<Card:0x007ffdf1820a90 @answer="Juneau", @question="What is the capital of Alaska?">, @response="Juneau">
+    # assert_equal 1, round.guesses.count
+    # assert_equal "Correct!", round.guesses.first.feedback
+    # assert_equal 1, round.number_correct
+    # assert_equal card_2. round.current_card
+    # assert_equal guess, round.record_guess("2")
+    # # => #<Guess:0x007ffdf19c8a00 @card=#<Card:0x007ffdf1820a90 @answer="93,000,000", @question="Approximately how many miles are in one astronomical unit?">, @response="2">
+    # assert_equal 2, round.guesses.count
+    # assert_equal "Incorrect.", round.guesses.last.feedback
+    # assert_equal 1, round.number_correct
+    # assert_equal 50, round.percent_correct
+  end
+
 end
