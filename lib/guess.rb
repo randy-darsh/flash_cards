@@ -11,16 +11,18 @@ class Guess
   end
 
   def response
-    @response = "Saturn"
+    @response = answer
   end
 
   def correct?
-    @response == "Mercury"
+    @response == card.answer
   end
 
   def feedback
-    if @respose != "Mercury"
+    if @response != card.answer
       "Incorrect."
+    else
+      "Correct!"
     end
   end
 
