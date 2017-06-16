@@ -1,5 +1,3 @@
-require_relative 'guess'
-
 class Card
 
   attr_reader :question,

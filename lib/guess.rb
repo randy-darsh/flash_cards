@@ -1,17 +1,12 @@
-require_relative 'card'
-
 class Guess
 
-  attr_reader :answer,
-              :card
+  attr_reader :response,
+              :card,
+              :feedback
 
-  def initialize(answer, card)
-    @answer = answer
+  def initialize(response, card)
+    @response = response
     @card = card
-  end
-
-  def response
-    @response = answer
   end
 
   def correct?
@@ -24,38 +19,6 @@ class Guess
     else
       "Correct!"
     end
-  end
-
-end
-
-class Deck
-
-  attr_reader :cards
-
-  def initialize(cards)
-    @cards = cards
-  end
-
-  def count
-    @count = cards.count
-  end
-
-end
-
-class Round
-
-  attr_reader :deck
-
-  def initialize(deck)
-    @deck = deck
-  end
-
-  def guesses
-    @guesses = []
-  end
-
-  def current_card
-    @current_card = deck.cards.first
   end
 
 end

@@ -3,6 +3,8 @@ require 'minitest/pride'
 require 'minitest/autorun'
 require './lib/card'
 require './lib/guess'
+require './lib/round'
+require './lib/deck'
 
 class CardTest < Minitest::Test
   def test_it_exists
@@ -50,10 +52,10 @@ class CardTest < Minitest::Test
     assert_equal deck, round.deck
     assert_equal [], round.guesses
     assert_equal card_1, round.current_card
-    assert_equal guess, round.record_guess("Juneau")
+    assert_instance_of Guess, round.record_guess("Juneau")
     # # => #<Guess:0x007ffdf19c8a00 @card=#<Card:0x007ffdf1820a90 @answer="Juneau", @question="What is the capital of Alaska?">, @response="Juneau">
-    # assert_equal 1, round.guesses.count
-    # assert_equal "Correct!", round.guesses.first.feedback
+    assert_equal 1, round.guesses.count
+    assert_equal "Correct!", round.guesses.first.feedback
     # assert_equal 1, round.number_correct
     # assert_equal card_2. round.current_card
     # assert_equal guess, round.record_guess("2")
