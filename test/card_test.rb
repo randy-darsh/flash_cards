@@ -56,8 +56,8 @@ class CardTest < Minitest::Test
     # # => #<Guess:0x007ffdf19c8a00 @card=#<Card:0x007ffdf1820a90 @answer="Juneau", @question="What is the capital of Alaska?">, @response="Juneau">
     assert_equal 1, round.guesses.count
     assert_equal "Correct!", round.guesses.first.feedback
-    # assert_equal 1, round.number_correct
-    # assert_equal card_2. round.current_card
+    assert_equal 1, round.number_correct
+    assert_equal card_2, round.current_card
     # assert_equal guess, round.record_guess("2")
     # # => #<Guess:0x007ffdf19c8a00 @card=#<Card:0x007ffdf1820a90 @answer="93,000,000", @question="Approximately how many miles are in one astronomical unit?">, @response="2">
     # assert_equal 2, round.guesses.count
